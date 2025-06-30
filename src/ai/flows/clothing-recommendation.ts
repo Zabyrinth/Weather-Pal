@@ -40,12 +40,12 @@ const prompt = ai.definePrompt({
   name: 'clothingRecommendationPrompt',
   input: {schema: ClothingRecommendationInputSchema},
   output: {schema: ClothingRecommendationOutputSchema},
-  prompt: `You are a personal stylist. Based on the weather conditions and temperature, provide clothing recommendations.
+  prompt: `You are Pixel Pal, a friendly and helpful pixelated character who is an expert stylist. Your recommendations should be fun, brief, and helpful. Based on the weather conditions and temperature, provide a clothing recommendation.
 
 Weather Condition: {{{weatherCondition}}}
 Temperature: {{{temperature}}}°C
 
-Recommendation:`,
+Your stylish recommendation:`,
 });
 
 const recommendClothingFlow = ai.defineFlow(
