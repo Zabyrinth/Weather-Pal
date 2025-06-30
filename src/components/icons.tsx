@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils"
+import { Sun, Cloud, CloudRain, Snowflake } from "lucide-react";
 
 const Icon = ({ className, ...props }: React.SVGProps<SVGSVGElement>) => (
   <svg
@@ -10,36 +11,6 @@ const Icon = ({ className, ...props }: React.SVGProps<SVGSVGElement>) => (
   >
     {props.children}
   </svg>
-)
-
-export const SunIcon = (props: React.SVGProps<SVGSVGElement>) => (
-  <Icon {...props}>
-    <path fill="#FFC857" d="M6 2h4v1h1v1h1v4h-1v1h-1v1H6v-1H5V8H4V4h1V3h1V2zm1 4h2v2H7V6z" />
-    <path fill="#FFC857" d="M7 1h2v1H7V1zM2 6h2v4H2V6zm12 0h2v4h-2V6zM7 14h2v1H7v-1z" />
-  </Icon>
-)
-
-export const CloudIcon = (props: React.SVGProps<SVGSVGElement>) => (
-  <Icon {...props}>
-    <path fill="#d1d5db" d="M3 7h1v1h1v1h1v1h5V9h1V8h1V7h1V6H3v1z" />
-    <path fill="#e5e7eb" d="M4 6h10v1H4V6zm-1 1H2v1h1v1h1v1h1v1h6V9h1V8h1V7h-1v1H4V7z" />
-  </Icon>
-)
-
-export const RainIcon = (props: React.SVGProps<SVGSVGElement>) => (
-  <Icon {...props}>
-    <path fill="#d1d5db" d="M3 6h1v1h1v1h1v1h5V8h1V7h1V6h1V5H3v1z" />
-    <path fill="#e5e7eb" d="M4 5h10v1H4V5zm-1 1H2v1h1v1h1v1h1v1h6V9h1V8h1V7h-1v1H4V6z" />
-    <path fill="#89BBEF" d="M5 11h1v2H5v-2zm3 1h1v2H8v-2zm3-1h1v2h-1v-2z" />
-  </Icon>
-)
-
-export const SnowIcon = (props: React.SVGProps<SVGSVGElement>) => (
-  <Icon {...props}>
-    <path fill="#d1d5db" d="M3 6h1v1h1v1h1v1h5V8h1V7h1V6h1V5H3v1z" />
-    <path fill="#e5e7eb" d="M4 5h10v1H4V5zm-1 1H2v1h1v1h1v1h1v1h6V9h1V8h1V7h-1v1H4V6z" />
-    <path fill="#fff" stroke="#d1d5db" d="M5 11h1v1H5v-1zm1 1h1v1H6v-1zM4 12h1v1H4v-1zm2-2h1v1H6v-1zm3 1h1v1H9v-1zm1 1h1v1h-1v-1zm-1-2h1v1H9v-1zm-3 3h1v1H6v-1zm3 1h1v1H9v-1zm1-2h1v1h-1v-1z" />
-  </Icon>
 )
 
 export const WindIcon = (props: React.SVGProps<SVGSVGElement>) => (
@@ -66,16 +37,16 @@ export const LocationIcon = (props: React.SVGProps<SVGSVGElement>) => (
 export function getWeatherIcon(condition: string | undefined) {
   switch (condition) {
     case 'Clear':
-      return SunIcon;
+      return Sun;
     case 'Clouds':
-      return CloudIcon;
+      return Cloud;
     case 'Rain':
     case 'Drizzle':
     case 'Thunderstorm':
-      return RainIcon;
+      return CloudRain;
     case 'Snow':
-      return SnowIcon;
+      return Snowflake;
     default:
-      return CloudIcon;
+      return Cloud;
   }
 }
