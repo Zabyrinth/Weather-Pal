@@ -46,7 +46,7 @@ export const WeatherCard = ({ data, recommendation }: WeatherCardProps) => {
         </div>
         
         <div className="mt-6 bg-primary/10 p-4 rounded-md border border-primary/20">
-            <h3 className="font-bold text-sm mb-1 font-headline">Pixel Pal's Tip:</h3>
+            <h3 className="font-bold text-sm mb-1 font-headline">Weather Pal's Tip:</h3>
             <p className="text-sm">{recommendation}</p>
         </div>
 

@@ -4,8 +4,8 @@ import { Toaster } from "@/components/ui/toaster"
 import { ThemeProvider } from '@/components/theme-provider';
 
 export const metadata: Metadata = {
-  title: 'Pixel Weather Pal',
-  description: 'Your friendly pixelated weather companion.',
+  title: 'Weather Pal',
+  description: 'Your friendly weather companion.',
 };
 
 export default function RootLayout({

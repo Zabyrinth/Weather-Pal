@@ -61,10 +61,10 @@ export default function Home() {
       </div>
       <div className="w-full max-w-2xl text-center">
         <h1 className="text-5xl md:text-6xl font-black font-headline tracking-tighter text-foreground">
-          Pixel Weather Pal
+          Weather Pal
         </h1>
         <p className="mt-2 text-lg text-muted-foreground">
-          Your friendly pixelated weather companion.
+          Your friendly weather companion.
         </p>
 
         <form onSubmit={handleSubmit} className="mt-8 flex w-full gap-2">
