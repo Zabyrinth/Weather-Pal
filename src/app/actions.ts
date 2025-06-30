@@ -1,6 +1,8 @@
 'use server';
 
 import { CombinedWeatherData, WeatherData, ForecastData } from '@/lib/types';
+import { db } from '@/lib/firebase';
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 
 const API_KEY = '5e57380012e3328d8856c73abeca69da';
 const WEATHER_API_URL = 'https://api.openweathermap.org/data/2.5/weather';
@@ -25,6 +27,17 @@ export async function getWeatherData(city: string): Promise<{ data?: CombinedWea
         throw new Error(errorData.message || 'Failed to fetch forecast data.');
     }
     const forecastData: ForecastData = await forecastResponse.json();
+
+    try {
+      await addDoc(collection(db, "searchHistory"), {
+        city: weatherData.name,
+        country: weatherData.sys.country,
+        timestamp: serverTimestamp(),
+      });
+    } catch (e) {
+      // Log the error but don't fail the request if firestore fails
+      console.error("Error adding document to Firestore: ", e);
+    }
 
     return { data: { weather: weatherData, forecast: forecastData } };
   } catch (error) {
