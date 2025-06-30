@@ -9,6 +9,7 @@ import type { CombinedWeatherData } from "@/lib/types";
 import { WeatherCard } from "@/components/weather-card";
 import { WeatherCardSkeleton } from "@/components/weather-card-skeleton";
 import { useToast } from "@/hooks/use-toast";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export default function Home() {
   const [city, setCity] = useState("London");
@@ -54,8 +55,11 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center p-4 sm:p-8 md:p-12">
+      <div className="absolute top-4 right-4">
+        <ThemeToggle />
+      </div>
       <div className="w-full max-w-2xl text-center">
-        <h1 className="text-5xl md:text-6xl font-bold font-headline tracking-tighter text-foreground">
+        <h1 className="text-5xl md:text-6xl font-black font-headline tracking-tighter text-foreground">
           Pixel Weather Pal
         </h1>
         <p className="mt-2 text-lg text-muted-foreground">
