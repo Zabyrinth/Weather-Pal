@@ -42,6 +42,7 @@ export default function Home() {
       if (result.data) {
         try {
             const clothingResponse = await recommendClothing({
+              city: city,
               weatherCondition: result.data.weather.weather[0].main,
               temperature: result.data.weather.main.temp,
             });
